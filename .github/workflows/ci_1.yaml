@@ -24,6 +24,9 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+    - name: Install linux dependencies
+      run: sudo apt-get install -y clang libssl-dev llvm libudev-dev protobuf-compiler
+
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
