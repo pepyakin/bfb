@@ -39,7 +39,7 @@ jobs:
         components: rustfmt, rust-src
 
     - name: Cache Dependencies
-      uses: Swatinem/rust-cache@ce325b60658c1b38465c06cc965b79baf32c1e72
+      uses: Swatinem/rust-cache@v2
 
     - name: Compile
       run: cargo test --no-run --locked
