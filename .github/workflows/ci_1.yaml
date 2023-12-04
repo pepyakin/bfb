@@ -7,7 +7,7 @@ on:
     branches:
     - master
 
-jobs:
+env:
   CARGO_INCREMENTAL: 0
   CI: 1
   RUST_BACKTRACE: short
