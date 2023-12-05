@@ -21,6 +21,8 @@ jobs:
       image: ghcr.io/pepyakin/bfb:1.0.0
     steps:
       - name: Diagnostics
-        run: (ls -lha /root ; ls -lha /root/.rustup ; cat /root/.rustup/settings.toml ; ls -lha /sugondat ; ls -lha /cargo)
+        run: (ls -lha /root ; ls -lha /root/.rustup ; cat /root/.rustup/settings.toml ; ls -lha /sugondat ; ls -lha /cargo ; export)
       - name: Build
-        run: (cd /sugondat && /cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node)
+        working-directory: /sugondat
+        shell: bash
+        run: /cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node
