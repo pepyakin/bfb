@@ -9,9 +9,9 @@ on:
 
 env:
   CARGO_INCREMENTAL: 0
-  CI: 1
-  RUST_BACKTRACE: short
-  RUSTC_VERSION: nightly-2023-10-16
+  CARGO_HOME: /cargo
+  CARGO_TARGET_DIR: /cargo_target
+  RUSTFLAGS:
 
 jobs:
   rust:
@@ -20,7 +20,7 @@ jobs:
     container:
       image: ghcr.io/pepyakin/bfb:1.0.0
     steps:
-      - name: Rust re-install
-        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain $RUSTC_VERSION
+      - name: Diagnostics
+        run: (ls -lha /root ; ls -lha /root/.rustup ; cat /root/.rustup/settings.toml ; ls -lha /sugondat ; ls -lha /cargo)
       - name: Build
-        run: (cd /sugondat && /root/.cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node)
+        run: (cd /sugondat && /cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node)
