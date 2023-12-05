@@ -20,4 +20,4 @@ jobs:
       image: ghcr.io/pepyakin/bfb:1.0.0
     steps:
       - name: Build
-        run: (cd /sugondat && /root/.cargo/bin/cargo build --release -p sugondat-node)
+        run: (cd /sugondat && /root/.cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node)
