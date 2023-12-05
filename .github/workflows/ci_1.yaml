@@ -25,4 +25,4 @@ jobs:
       - name: Build
         working-directory: /sugondat
         shell: bash
-        run: sudo su -c "/cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node"
+        run: su -c "/cargo/bin/cargo +nightly-2023-10-16 build --release -p sugondat-node"
